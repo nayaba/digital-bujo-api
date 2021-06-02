@@ -2,3 +2,13 @@ Add entry.js to models
 Agonize over how to accept dates
 
 added notes, and cheatsheet
+--------
+created two users:
+twilight@sparkle password:p
+rainbow@dash password:p
+
+created file entry_routes.js
+required route files in server.js
+registered route files in server.js (app.use)
+
+exported router from entry_routes
