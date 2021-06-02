@@ -12,3 +12,5 @@ required route files in server.js
 registered route files in server.js (app.use)
 
 exported router from entry_routes
+---------
+created create.sh curl script file
