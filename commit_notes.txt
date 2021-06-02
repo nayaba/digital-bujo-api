@@ -1,0 +1,4 @@
+Add entry.js to models
+Agonize over how to accept dates
+
+added notes, and cheatsheet
