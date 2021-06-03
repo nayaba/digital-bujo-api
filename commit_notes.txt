@@ -24,3 +24,9 @@ added show route in in entry_routes.js
 created show.sh curl script file
 created show curl script
 fixed bug with show route --> find needed to be findById
+---------
+added .catch to show route
+created patch/update route
+created update.sh curl script file
+added next to show route .catch
+fixed bug in patch route --> res.status(204) needed to be res.sendStatus(204)

@@ -28,9 +28,20 @@ router.get('/entries/:id', (req, res, next) => {
     .then(entry => {
       res.status(200).json({ entry })
     })
+    .catch(next)
 })
 
 // update
+router.patch('/entries/:id', (req, res, next) => {
+  Entry.findById(req.params.id)
+    .then(entry => {
+      return entry.updateOne(req.body.entry)
+    })
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(next)
+})
 
 // delete
 
