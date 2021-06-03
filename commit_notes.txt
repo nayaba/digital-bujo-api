@@ -34,3 +34,7 @@ fixed bug in patch route --> res.status(204) needed to be res.sendStatus(204)
 added delete entry route
 created delete.sh curl script file
 created delete curl request
+---------
+Added owner to entry model
+Why is our reference to 'User' sometimes in quotes, and sometimes not...?
+Added owner to create curl script

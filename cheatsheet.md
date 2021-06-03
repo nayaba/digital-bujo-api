@@ -40,3 +40,24 @@ router.get('/about', function (req, res) {
 
 module.exports = router
 ```
+## Mongoose Creates and Automatically Pluralizes Your Collections For You
+Mongoose pluralizes the model name and uses that as the collection name by defualt. If you don't want the default behavior, you can supply your own name:
+```js
+const UserModel = mongoose.model('User', new Schema({ ... }, { collection: 'Different_Name' }
+```
+## Ways to Use `Ref` in Mongoose
+```js
+const userSchema = new Schema({ name: String });
+const User = mongoose.model('User', userSchema);
+
+const postSchema = new Schema({ user: mongoose.ObjectId });
+postSchema.path('user').ref('User'); // Can set ref to a model name
+postSchema.path('user').ref(User); // Or a model class
+postSchema.path('user').ref(() => 'User'); // Or a function that returns the model name
+postSchema.path('user').ref(() => User); // Or a function that returns the model class
+
+// Or you can just declare the `ref` inline in your schema
+const postSchema2 = new Schema({
+  user: { type: mongoose.ObjectId, ref: User }
+});
+```

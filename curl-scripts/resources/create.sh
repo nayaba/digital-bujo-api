@@ -7,6 +7,7 @@ curl "${API}${URL_PATH}" \
 --header "Content-Type: application/json" \
 --data '{
     "entry": {
-      "text": "'"${TEXT}"'"
+      "text": "'"${TEXT}"'",
+      "owner": "'"${OWNER}"'"
     }
   }'
