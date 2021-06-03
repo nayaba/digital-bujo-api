@@ -39,6 +39,6 @@ Added owner to entry model
 Why is our reference to 'User' sometimes in quotes, and sometimes not...?
 Added owner to create curl script
 ---------
-Hash passwords with bcrypt
-Add authentication with passport
 Add symbol key to Entry model with enum validation
+----------
+Update update.sh to accept a symbol
