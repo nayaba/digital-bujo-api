@@ -44,6 +44,16 @@ router.patch('/entries/:id', (req, res, next) => {
 })
 
 // delete
+router.delete('/entries/:id', (req, res, next) => {
+  Entry.findById(req.params.id)
+    .then(entry => {
+      entry.deleteOne()
+    })
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(next)
+})
 
 
 module.exports = router

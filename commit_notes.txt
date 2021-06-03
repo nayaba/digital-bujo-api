@@ -30,3 +30,7 @@ created patch/update route
 created update.sh curl script file
 added next to show route .catch
 fixed bug in patch route --> res.status(204) needed to be res.sendStatus(204)
+---------
+added delete entry route
+created delete.sh curl script file
+created delete curl request
