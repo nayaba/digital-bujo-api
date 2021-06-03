@@ -51,3 +51,5 @@ Add authentication to index route and index curl script
 Add authentication to show route and show curl script
 Add authentication to update route and curl script
 Add authentication to delete route and curl script
+--------
+Add requireOwnership to entry_routes for patch and delete

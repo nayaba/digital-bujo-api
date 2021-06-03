@@ -4,6 +4,9 @@ const router = express.Router()
 const passport = require('passport')
 const requireToken = passport.authenticate('bearer', { session: false })
 
+const customErrors = require('../../lib/custom_errors')
+const requireOwnership = customErrors.requireOwnership
+
 const Entry = require('./../models/entry')
 
 // create
@@ -28,7 +31,7 @@ router.get('/entries', requireToken, (req, res, next) => {
 router.get('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
-      res.status(200).json({ entry })
+      return res.status(200).json({ entry })
     })
     .catch(next)
 })
@@ -37,6 +40,7 @@ router.get('/entries/:id', requireToken, (req, res, next) => {
 router.patch('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
+      requireOwnership(req, entry)
       return entry.updateOne(req.body.entry)
     })
     .then(() => {
@@ -49,6 +53,7 @@ router.patch('/entries/:id', requireToken, (req, res, next) => {
 router.delete('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
+      requireOwnership(req, entry)
       entry.deleteOne()
     })
     .then(() => {
