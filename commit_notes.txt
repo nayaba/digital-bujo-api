@@ -14,5 +14,13 @@ registered route files in server.js (app.use)
 exported router from entry_routes
 ---------
 created create.sh curl script file
+created create curl script
 fixed bug with create curl script
 fixed line in entry_routes from req.body.text to req.body.entry to match curl script
+---------
+created index.sh curl script file
+created index curl script
+added show route in in entry_routes.js
+created show.sh curl script file
+created show curl script
+fixed bug with show route --> find needed to be findById
