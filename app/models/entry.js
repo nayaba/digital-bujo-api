@@ -1,13 +1,12 @@
 const mongoose = require('mongoose')
-const { Schema } = mongoose
 
-const entrySchema = new Schema({
+const entrySchema = new mongoose.Schema({
   text: {
     type: String,
     required: true
   }
 }, {
-  timestamp: true
+  timestamps: true
 })
 
 module.exports = mongoose.model('Entry', entrySchema)

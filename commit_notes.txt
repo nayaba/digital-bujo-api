@@ -14,3 +14,5 @@ registered route files in server.js (app.use)
 exported router from entry_routes
 ---------
 created create.sh curl script file
+fixed bug with create curl script
+fixed line in entry_routes from req.body.text to req.body.entry to match curl script
