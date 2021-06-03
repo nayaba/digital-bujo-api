@@ -1,10 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
+const passport = require('passport')
+const requireToken = passport.authenticate('bearer', { session: false })
+
 const Entry = require('./../models/entry')
 
 // create
-router.post('/create-entry', (req, res, next) => {
+router.post('/create-entry', requireToken, (req, res, next) => {
   Entry.create(req.body.entry)
     .then(entry => {
       res.status(201).json({ entry })
