@@ -5,6 +5,11 @@ const entrySchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  symbol: {
+    type: String,
+    enum: ['*', '-', '+', '>'],
+    required: true
+  },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

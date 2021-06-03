@@ -8,6 +8,7 @@ curl "${API}${URL_PATH}" \
 --data '{
     "entry": {
       "text": "'"${TEXT}"'",
+      "symbol": "'"${SYMBOL}"'",
       "owner": "'"${OWNER}"'"
     }
   }'

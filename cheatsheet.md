@@ -61,3 +61,39 @@ const postSchema2 = new Schema({
   user: { type: mongoose.ObjectId, ref: User }
 });
 ```
+## Bcrypt for hashing passwords
+Hashing passwords and authentication is something I will most likely never be responsible for on the job
+```js
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+    // Store hash in your password DB.
+});
+```
+
+## Passport for authentication
+
+## Mongoose `enum` validation
+- All SchemaTypes have the built-in `required` validator. The required validator uses the SchemaType's `checkRequired()` function to determine if the value satisfies the required validator.
+- Numbers have `min` and `max` validators.
+- Strings have `enum, match, minLength`, and `maxLength` validators.
+```js
+const breakfastSchema = new Schema({
+  eggs: {
+    type: Number,
+    min: [6, 'Too few eggs'],
+    max: 12
+  },
+  bacon: {
+    type: Number,
+    required: [true, 'Why no bacon?']
+  },
+  drink: {
+    type: String,
+    enum: ['Coffee', 'Tea'], // user will only be able to choose from coffee or tea
+    required: function() {
+      return this.bacon > 3;
+    }
+  }
+});
+```
