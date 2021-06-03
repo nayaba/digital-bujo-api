@@ -16,7 +16,7 @@ router.post('/create-entry', requireToken, (req, res, next) => {
 })
 
 // read all
-router.get('/entries', (req, res, next) => {
+router.get('/entries', requireToken, (req, res, next) => {
   Entry.find()
     .then(entries => {
       res.status(200).json({ entries })
@@ -25,7 +25,7 @@ router.get('/entries', (req, res, next) => {
 })
 
 // read one
-router.get('/entries/:id', (req, res, next) => {
+router.get('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
       res.status(200).json({ entry })
@@ -34,7 +34,7 @@ router.get('/entries/:id', (req, res, next) => {
 })
 
 // update
-router.patch('/entries/:id', (req, res, next) => {
+router.patch('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
       return entry.updateOne(req.body.entry)
@@ -46,7 +46,7 @@ router.patch('/entries/:id', (req, res, next) => {
 })
 
 // delete
-router.delete('/entries/:id', (req, res, next) => {
+router.delete('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)
     .then(entry => {
       entry.deleteOne()

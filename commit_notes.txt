@@ -38,7 +38,7 @@ created delete curl request
 Added owner to entry model
 Why is our reference to 'User' sometimes in quotes, and sometimes not...?
 Added owner to create curl script
----------
+----------
 Add symbol key to Entry model with enum validation
 ----------
 Update update.sh to accept a symbol
@@ -46,3 +46,8 @@ Require passport and define authenticateToken function in entry_routes
 Add authenticateToken function to create route
 Add token bearer authorization to create curl script so user must be signed in to create an entry
 Fix bug with create curl script (it's literally always the final '\' OMG)
+----------
+Add authentication to index route and index curl script
+Add authentication to show route and show curl script
+Add authentication to update route and curl script
+Add authentication to delete route and curl script
