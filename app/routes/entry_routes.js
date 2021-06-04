@@ -34,6 +34,15 @@ router.get('/entries', requireToken, (req, res, next) => {
     .catch(next)
 })
 
+// read all by recent date
+router.get('/entries/date', requireToken, (req, res, next) => {
+  Entry.find({owner: req.user._id}).sort({createdAt: -1})
+    .then(entries => {
+      res.status(200).json({ entries })
+    })
+    .catch(next)
+})
+
 // read one
 router.get('/entries/:id', requireToken, (req, res, next) => {
   Entry.findById(req.params.id)

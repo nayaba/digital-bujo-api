@@ -58,3 +58,5 @@ Update show (read one) entry_route to fix bug that allowed all users to find
 any entry by id
 Update index (read all) entry_route to fix but that allowed all users to see
 all entries, not only their own
+--------
+Add index by most recent date entry_route
