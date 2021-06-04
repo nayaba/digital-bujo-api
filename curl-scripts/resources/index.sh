@@ -3,4 +3,5 @@ URL_PATH="/entries"
 
 curl "${API}${URL_PATH}" \
 --include \
---header "Authorization: Bearer ${TOKEN}"
+--request GET \
+--header "Authorization: Bearer ${TOKEN}" \

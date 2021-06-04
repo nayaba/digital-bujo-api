@@ -53,3 +53,8 @@ Add authentication to update route and curl script
 Add authentication to delete route and curl script
 --------
 Add requireOwnership to entry_routes for patch and delete
+--------
+Update show (read one) entry_route to fix bug that allowed all users to find
+any entry by id
+Update index (read all) entry_route to fix but that allowed all users to see
+all entries, not only their own
