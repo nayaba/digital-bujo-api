@@ -44,13 +44,12 @@ router.get('/entries/date', requireToken, (req, res, next) => {
 })
 
 // search by entry text
-router.get('/entries/search', requireToken, (req, res, next) => {
-  const search = req.body.entry.text
-  // const query = new RegExp(`^${search}`, 'i')
-  // const query = { $text: { $search: new RegExp(search) } }
-  Entry.find({ text: new RegExp(search) })
-    .then(console.log('search :', search))
+router.get('/entries/search/:text', requireToken, (req, res, next) => {
+  const searchWord = req.params.text
+  console.log('searchWord: ', searchWord)
+  Entry.find({ text: new RegExp(searchWord) })
     .then(entry => {
+      console.log('entry: ', entry)
       res.status(200).json({ entry })
     })
     .catch(next)
