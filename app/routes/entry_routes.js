@@ -36,9 +36,22 @@ router.get('/entries', requireToken, (req, res, next) => {
 
 // read all by recent date
 router.get('/entries/date', requireToken, (req, res, next) => {
-  Entry.find({owner: req.user._id}).sort({createdAt: -1})
+  Entry.find({owner: req.user._id}).sort({updatedAt: -1})
     .then(entries => {
       res.status(200).json({ entries })
+    })
+    .catch(next)
+})
+
+// search by entry text
+router.get('/entries/search', requireToken, (req, res, next) => {
+  const search = req.body.entry.text
+  // const query = new RegExp(`^${search}`, 'i')
+  // const query = { $text: { $search: new RegExp(search) } }
+  Entry.find({ text: new RegExp(search) })
+    .then(console.log('search :', search))
+    .then(entry => {
+      res.status(200).json({ entry })
     })
     .catch(next)
 })
