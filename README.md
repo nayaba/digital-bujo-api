@@ -1,7 +1,7 @@
 ![Bujo logo](https://i.imgur.com/KVeDqNR.png)
 
 ## Bujo the digital Bullet Journal
-https://github.com/nayaba/digital-bujo-client
+https://nayaba.github.io/digital-bujo-client/
 
 Buju is a simple app that offers a digital alternative to the popular note-taking/organization method known as bullet journaling (or 'Bujo' for short).  With the Bujo app anyone can start a new journal and begin creaÂting entries right away.  Each entry gets tagged with a symbol based on the tradtional bullet journal symbol key:
 
