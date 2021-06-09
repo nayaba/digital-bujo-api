@@ -62,3 +62,6 @@ all entries, not only their own
 Add index by most recent date entry_route
 --------
 Add index_search.sh to enable search by string.  Will need to redeploy to heroku
+--------
+Can successfully search by substring, case insensitive; unfortunately it is not
+possible to limit search to entries owned by the signed in owner at this time

@@ -47,7 +47,7 @@ router.get('/entries/date', requireToken, (req, res, next) => {
 router.get('/entries/search/:text', requireToken, (req, res, next) => {
   const searchWord = req.params.text
   console.log('searchWord: ', searchWord)
-  Entry.find({ text: new RegExp(searchWord) })
+  Entry.find({ text: new RegExp(searchWord, 'i') })
     .then(entry => {
       console.log('entry: ', entry)
       res.status(200).json({ entry })
